@@ -39,4 +39,9 @@ Route::get('/rota2', function(){
 
 //Route::redirect('/rota2, /rota1');
 
+//Uma rota de contingência, que é acionada caso o usuario tente acessar uma rota não existente.
+Route::fallback(function(){
+    echo 'A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui</a> para ir para a página principal';
+});
+
 
