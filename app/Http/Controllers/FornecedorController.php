@@ -17,6 +17,13 @@ class FornecedorController extends Controller
                  ]
         ];
 
+        /*
+        condição ? se verdade : se falso;
+        condição ? se verdade : (condição ? se verdade : se falso); encadeamento de testes (não recomendado)
+         */
+        $msg = isset($fornecedores[1]['cnpj']) ? 'CNPJ informado' : 'CNPJ não informado';
+        echo $msg;
+
     return view('app.fornecedores.index', compact('fornecedores'));
     }
 }
