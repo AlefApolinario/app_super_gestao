@@ -21,7 +21,9 @@ class AlterFornecedoresNovasColunas extends Migration
     }
 
     
-
+    //Assim como as migrations são feitas da mais antiga para a mais atual, o rollback é feito do mais atual para mais antiga
+    //sendo feitas uma a uma, utilizando o comando php artisan migrate:rollback, ou php artisan migrate:rollback --step=(?)
+    //sendo (?) o numero de migrations que se deseja dar rollback.
     /**
      * Reverse the migrations.
      *
@@ -29,6 +31,8 @@ class AlterFornecedoresNovasColunas extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('fornecedores', function(Blueprint $table){
+            $table->dropColumn(['uf','email']);
+        });
     }
 }
